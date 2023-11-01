@@ -25,3 +25,24 @@ Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharin
 # I am title
 
 Hello, GH pages!
+
+
+
+---
+# Some R code 
+
+```{r chunk_10, include = T}
+hist(cars$speed)
+```
+
+
+
+
+
+
+
+
+
+
+
+
