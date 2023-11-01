@@ -42,6 +42,85 @@ hist(cars$speed)
 ```
 
 ![](xaringan_example_files/figure-html/chunk_10-1.png)&lt;!-- --&gt;
+
+
+
+---
+# Some more R code 
+
+
+```r
+## Loading packages 
+library(readr)
+library(tidyverse)
+```
+
+```
+## ── Attaching packages ───────────────────────────────────────── tidyverse 1.2.1 ──
+```
+
+```
+## ✔ ggplot2 3.3.0     ✔ purrr   0.3.4
+## ✔ tibble  2.1.3     ✔ dplyr   1.0.4
+## ✔ tidyr   1.1.0     ✔ stringr 1.4.0
+## ✔ ggplot2 3.3.0     ✔ forcats 0.3.0
+```
+
+```
+## Warning: package 'ggplot2' was built under R version 3.5.2
+```
+
+```
+## Warning: package 'tibble' was built under R version 3.5.2
+```
+
+```
+## Warning: package 'stringr' was built under R version 3.5.2
+```
+
+```
+## ── Conflicts ──────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+```
+
+```r
+## Loading and cleaning data 
+df &lt;- read_csv('births.csv') %&gt;% 
+  rename(age      = Age) %&gt;% 
+  rename(n_women  = "Number of women") %&gt;% 
+  rename(n_births = "Number of births") %&gt;% 
+  filter(!is.na(n_women)) %&gt;% 
+  mutate(afr = n_births/n_women)
+```
+
+```
+## Parsed with column specification:
+## cols(
+##   Age = col_integer(),
+##   `Number of women` = col_integer(),
+##   `Number of births` = col_integer()
+## )
+```
+
+
+
+---
+# even more R code 
+
+
+```r
+## Calculating the total fertility rate 
+sum(df %&gt;% select(afr)) %&gt;% round(d = 2)
+```
+
+```
+## [1] 0.57
+```
+
+```r
+# The total fertility rate is 0.57.
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
